@@ -1,0 +1,115 @@
+%!tex root = ../thesis.tex
+\chapter{{Coding Based Cryptography}}
+In 1948 Shannon published one of his most celebrated works \quotes{A Mathematical Theory of Communication}. Here were established the bases of the coding theory and the information theory. The coding theory was initially created with the object of studying how to encode messages on a noisy channel communication. Over the years this theory has growing, and now it includes the study of codes, including error detecting codes and error correcting codes. 
+
+There are several areas where the coding theory is applied, for example in data compression, cryptography, error-correction, and networking. The following is a classic example in the error-correction area. In 1971 was launched Mariner 71, a spacecraft which, among other missions, should to send pictures from Mars to the Earth. To transmit these pictures a fine grid was placed over the picture. In each square was quantified the blackness degree of the picture with a number between $0$ and $63$. These numbers were represented with a binary string of length $6$. The bits $0$ and $1$ were transmitted as two different signals to a receiver station in the Earth. However, sometimes the signals arrived weak due to great distance. This caused sometimes $0$ was understood as $1$, and vice versa. Though, Mariner was equipped with the Reed Salomon code. As other codes, this  code  incorporates some redundancy, so that, if some of the symbols in a codeword are changed, we can still figure out the transmitted message. In the case of Reed Salomon used for Mariner 71 the codeword consists of $m$ bits of original data and $n$ bits of redundancy. That instance of the code is called $(6,4)$ Reed Salomon code and in section we are going to explain that in more detail.
+
+In 1978 that theory was also used by McEliece to create a public key cryptosystem and the code used at this time was the Goppa codes. Since that time many new cryptosystems using code theory have appeared. These cryptosystems initially did not call much attention because the size of its keys, but with the imminent arrival of the quantum computers these cryptosystems came afloat because they resist attacks that use this type of computers. To understand these cryptosystems first is necessary to know some mathematical background about codes and .... In this chapter we will give an overview of the main definitions and theorems that we will need in the thesis, for more information please refer to A and B.
+
+\section{Linear Codes}
+
+Linear codes are the cornerstone for almost all code based cryptosystems. Traditionally the linear codes are partitioned in two: the block codes and the convutional codes. The cryptosystems we are going to present in this chapter uses block codes. In this kind of codes the message to be transmitted are divided in blocks of equal size and each one of these blocks can be code and decoded independently. These blocks are called \textit{codewords} and the size $n$ of one block is just called of \textit{lenght} of the code. The messages are coded on a alphabet. In this thesis we are use the $\mathbb{F}_2$ finite field as alphabet unless we mention otherwise.
+
+{
+    \defn{[33, \cite{Lint:1998:ICT:552386}]} If $\vetor{x}\in \mathbb{F}_2^n$, $\vetor{y}\in \mathbb{F}_2^n$, then the distance $d(\vetor{x},\vetor{y})$ of $\vetor{x}$ and $\vetor{y}$ is defined by
+    
+    \[
+        d(\vetor{x},\vetor{y}) \coloneqq |\left\{i|1\leq i \leq n, x_i \neq y_i\right\}|
+        \]
+    
+    The weight $w(\vetor{x})$ of $\vetor{x}$ is defined by 
+    
+    \[
+        w(\vetor{x})\coloneqq d(\vetor{x},\vetor{0}).
+    \]
+}
+
+(We always denote $(0,0,\cdots,0)$ by $\vetor{0}$ and $(1,1,\cdots,1)$ by  $\vetor{1}$.)
+
+The distance defined above is called \textit{Hamming-distance}. 
+In the following a code $\mathcal{C}$ is a nonempty proper subset of $\mathbb{F}_2^n$. The following concepts play an essential role in this thesis
+
+{
+    \defn{[34, \cite{Lint:1998:ICT:552386}]} The minimum distance of a code $\code$ is 
+    \[
+        \min\left\{d(\vetor{x}, \vetor{y})|\vetor{x}\in \code, \vetor{y} \in \code, \vetor{x}\neq \vetor{y}\right\}.
+    \]
+    
+    For a linear code the minimum distance is the minimal weight of a non-zero codeword. In other words the minimum distance of a linear $\code$ is
+    
+    \[
+        \min\left\{ w(\vetor{x}) |  \vetor{x} \in \code, \vetor{x}\neq \vetor{0}\right\}.
+    \]
+}
+{
+    \defn{[34, \cite{Lint:1998:ICT:552386}]} 
+    \[
+        R\coloneqq n^{-1}\log_2|\code|
+    \]
+    is called the rate of $\code$
+}
+
+In coding theory, a linear code is an error-correcting code for which any linear combination of codewords is also a codeword. More formally.
+
+{
+    \defn{[35, \cite{Lint:1998:ICT:552386}]} A q-ary linear code $\code$ is a linear subspace of $\gf^n$. If $\code$ has dimension $k$ then $\code$ is called an $[n,k]$ code.
+}
+
+Hereafter, we shall use $[n,k,d]$ code as the notation for a $k$-dimensional linear code of length $n$ and minimum distance $d$.
+
+{
+    \defn{[35, \cite{Lint:1998:ICT:552386}]} A generator matrix $\generatorMatrix$ for a linear code $\code$ is a $k$ by $n$ matrix for which the rows are a basis of $\code$.
+}
+
+A code $\code$ can be described by its generator matrix, in other words if $\generatorMatrix$ is a generator matrix for $\code$, then $\code = \left\{\vetor{a}\generatorMatrix|\vetor{a}\in \gf^k\right\}$. We shall say that $\generatorMatrix$ is in standard form (or reduced echelon form) if $\generatorMatrix = (I_k\,\,P)$, where $I_k$ is the identity matrix with dimensions $k\times k$. If $\generatorMatrix$ is in standard form then the first $k$ symbols are called of information symbols and the remaining of parity check symbols.
+
+{
+    \defn{[4, \cite{Lint:1998:ICT:552386}]} Given $\vetor{a}\coloneqq (a_1, a_2, \cdots, a_n)$ and $\vetor{b}\coloneqq (b_1, b_2, \cdots, b_n)$. The inner product $\langle\vetor{x},\vetor{y}\rangle$ is defined by
+    \[
+        \langle\vetor{x},\vetor{y}\rangle \coloneqq a_1b_1 + a_2b_2 + \cdots + a_nb_n.
+    \]
+}
+
+{
+    \defn{[36, \cite{Lint:1998:ICT:552386}]} If $\code$ is a $[n,k]$ code we define the dual code $\code^{\perp}$ by 
+    \[
+        \code^{\perp} \coloneqq \left\{\vetor{y}\in \gf^n | \forall _{\vetor{x}\in \code}\left[\langle\vetor{x},\vetor{y}\rangle = 0\right]\right\}.
+    \]
+}
+
+The dual code $\code^{\perp}$ is clearly a linear code, namely $\left[n,n-k\right]$ code. If $\generatorMatrix=(I_k\,\,P)$ is a generator matrix in standard form of the code $\code$, then $\parityCheckMatrix = (-P^{T}\,\,I_{n-k})$ is a generator matrix for $\code^{\perp}$. This follows from the fact that $\parityCheckMatrix$ has the right size and rank and that $G\parityCheckMatrix^T = 0$ implies that every codeword $\vetor{a}G$ has inner product $0$ with every row of $\parityCheckMatrix$. More formally
+\[
+    \vetor{x} \in \code \iff \vetor{x}\parityCheckMatrix^T = \vetor{0}.
+\]
+$\parityCheckMatrix$ is called of parity check matrix of $\code$
+
+
+{
+    \defn{[36, \cite{Lint:1998:ICT:552386}]} If $\code$ is a linear code with parity check matrix $\parityCheckMatrix$ then for every $\vetor{x}\in\gf^n$ we call $\vetor{x}\parityCheckMatrix^T$ of the syndrome of $\vetor{x}$. 
+}
+
+
+{
+\thm{[67, \cite{Richard}]}
+    Let $\code$ be a linear code with parity matrix $\parityCheckMatrix$ and $s$ the minimum number of linearly dependent columns in $ \parityCheckMatrix $, then $s$ is the minimum distance of the code.
+}
+
+\textit{Proof}. Let $d$ be the minimum distance of $\code$ and let $\vetor{x}= (x_1, \cdots x_s, 0, \cdots, 0)$ $\in \code$ where $x_i \neq 0 $ in the range $1 \leq i \leq s$. Obviously, $s$ can not be less than $d$, because in that case $s$ must be the minimum distance of the code. It remains to prove that $s$ can not be greater than $d$. Let $\vetor{y} = (y_1, \cdots y_d, 0,0, \cdots, 0) \in C$, with $y_i \neq 0$ in range $ 1 \leq i \leq d$. Since $\vetor{y} \in \code$ then $\parityCheckMatrix\vetor{y}=0$, that is, we have found $d$ linearly dependent columns. Now $s$ can not greater than $d$ because this violates the hypothesis: $s$ is the minimum number of linearly dependent columns in $ \parityCheckMatrix$.
+
+\section{Decoding Problems}
+In some code based cryptosystems the next theorem is important because helps to guarantee the hardness of cryptosystems against certain types of attacks.
+{
+\thm{[3, \cite{Barreto:2011:OSS:1922690.1922979}]}
+    A binary linear code $[n,k,d]-\code$ is ensured to exist as long as:
+\[
+  \sum_{j=0}^{d-2}\binom{n-1}{j}<2^{n-k}.
+\]
+}
+This is called the Gilbert-Varshamov (GV) bound. Random binary codes are known to meet the GV bound, in the sense that the above inequality comes very close to being an equality \cite{book:MacWilliams:Sloane}. No family of binary codes is known that can be decoded in subexponential time up to the GV bound, nor is any subexponential algorithm known that can decode general codes
+up to the GV bound. In follow we present the proof of this theorem following as reference \cite{book:MacWilliams:Sloane}.
+
+
+
+
+%From then until now several 
+%representing words of a code as its rank in some conventional ordering

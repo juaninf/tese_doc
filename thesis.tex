@@ -1,0 +1,137 @@
+\documentclass[12pt,a4paper,american]{thesis}
+\newcommand{\tipo}{Tese}
+\newcommand{\tipoeng}{Thesis}
+\newcommand{\grau}{Doutor}
+\newcommand{\graueng}{Doctor}
+\newcommand{\abrevi}{D.Sc.}
+\usepackage{ifpdf}
+\usepackage{times,epstopdf,ifpdf,latexsym,graphics,psfrag,ps4pdf,thumbpdf}
+\usepackage{epstopdf}
+
+\newif
+  \ifpdf
+  \ifx
+    \pdfoutput \undefined \pdffalse
+    \usepackage{graphicx}
+  \else
+      \usepackage[pdftex]{graphicx}
+
+      \usepackage{epstopdf}
+      \pdfcompresslevel=9
+      \pdfoutput=1
+      \pdftrue
+    \fi
+\newcommand{\pdfgraphics}{
+\ifpdf
+   \usepackage{graphicx,latexsym,pdftex,graphics}
+   \pdfcompresslevel=9
+   \DeclareGraphicsExtensions{.pdf,.png,.jpg,.jpeg,.mps}
+\fi}
+
+\usepackage[round]{natbib}
+\usepackage{sty/identfirst}
+\usepackage{sty/datetime}
+\usepackage{sty/ulem}
+\usepackage{sty/rotating}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[english]{babel}
+\usepackage{ae}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{lscape}
+\usepackage{caption}
+\usepackage{footnote}
+\usepackage{verbatim}
+\usepackage{epsfig}
+\usepackage{textcomp}
+\usepackage{amssymb,amsmath,amsfonts}
+\usepackage{mathtools}
+\usepackage{eqparbox}
+\usepackage{epstopdf}
+\usepackage{amsthm}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{pro}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{defn}{Definition}[section]
+
+\newcommand{\code}{\mathcal{C}}
+\newcommand{\vetor}[1]{\boldsymbol{#1}}
+\newcommand{\gf}{\mathbb{F}_2}
+\newcommand{\parityCheckMatrix}{\normalfont\textsf{H}}
+\newcommand{\generatorMatrix}{\normalfont\textsf{G}}
+\newcommand{\quotes}[1]{``#1''}
+
+\usepackage{lipsum}
+\usepackage{xargs}
+\usepackage[pdftex,dvipsnames]{xcolor}  
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+\newcommandx{\unsure}[2][1=]{\todo[backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommandx{\basedon}[2][1=]{\todo[backgroundcolor=brown!25,bordercolor=brown,#1]{#2}}
+\newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\info}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+\newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+\newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
+
+
+\logo{\includegraphics{logo/lncc}}
+\title{Criptografia P\'os-Qu\^antica}
+\titleeng{Postquantum Cryptography}
+\author{Juan del Carmen}{Grados Vasquez}
+\degree{\grau{} em Ciências em Modelagem Computacional }  %  #1 {long descr.}
+       {\abrevi{}}                            %  #2 {short descr.}
+\dept{Laborat\'orio Nacional de Computa\c c\~ao Cient\'ifica}{}
+\advisor {, D.Sc}{Portugal}{Renato}
+\readerTwo{, Ph.D}{Clemente Augusto Souza}{Tanajura}% 2rd Avaliador do LNCC
+\readerThree{, D.Sc.}{Eduardo Lúcio Mendes}{Garcia} % 3rd Avaliador do LNCC
+\readerFour {, D.Sc.}{Fulano de}{Tal}               % 4rd Avaliador de Instituicao Externa
+\readerFive {, Ph.D}{Ciclano de}{Tal}               % 5rd Avaliador de Instituicao Externa
+
+\readerSix{, Ph.D}{Beltrano de}{Tal}                % 6th Avaliador de 
+\catalography[Ficha Catalogr\'afica]{\OnePageChapter
+\familyname{Gazoni} \givenname{Leandro Carlos}
+
+\numpages{xx, yy p.}
+\keyword{1. HashBased Cryptography. 2. Multivariate. 3. Coding Theory. 4. palava chave. }
+
+\codbib{CDD xxx.xxx} \codtese{XXXX} }
+
+\include{abstracts/abstract}
+\include{abstracts/abstracteng}
+\include{preamble/epigrafe}
+\include{preamble/dedicatory}
+\include{preamble/acknowledgements}
+\include{preamble/symbols}
+
+%Insert Table of Contents (chapter, bibliography and apendix)
+\ToCisShort % a 1-page Table of Contents
+
+%Insert (or not) List of figures
+\LoFisShort % a 1-page List of Figures
+%\emptyLoF  % no List of Figures at all
+\LoTisShort % a 1-page List of Tables
+\begin{document}
+\selectlanguage{english}
+\include{chapters/chapter1_introduction}
+\part{Background}
+%\include{chapters/chapter_background_finite_field}
+\include{chapters/chapter_background_hash}
+\include{chapters/chapter_background_coding}
+\include{chapters/chapter_background_mq_sat}
+\include{chapters/chapter_background_mq}
+\include{chapters/chapter_background_mq_mpqcs}
+\part{Contributions}
+\include{chapters/chapter_MERKLECODING}
+\include{chapters/chapter_MPQCSAT}
+
+\bibliographystyle{bibliography/plainnat}
+\bibliography{bibliography/thesis}
+
+\appendix
+
+\input{appendices/appA.tex}
+\input{appendices/appB.tex}
+
+\end{document}

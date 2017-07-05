@@ -1,0 +1,78 @@
+\relax 
+\@writefile{toc}{\contentsline {chapter}{\numberline {\th@ChapterStyle  5}\relax \fontsize  {12}{14.5}\selectfont  \abovedisplayskip 12\p@ plus3\p@ minus7\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6.5\p@ plus3.5\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \normalfont  {Multivariate Cryptography}}{7}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {\th@SectionStyle  5.1}\relax \fontsize  {12}{14.5}\selectfont  \abovedisplayskip 12\p@ plus3\p@ minus7\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6.5\p@ plus3.5\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \normalfont  Basic Notation}{7}}
+\newlabel{eq:1}{{5.1}{7}}
+\citation{Patarin1996}
+\newlabel{eq:maprepresentation}{{5.2}{8}}
+\newlabel{eq:3}{{5.3}{8}}
+\@writefile{toc}{\contentsline {section}{\numberline {\th@SectionStyle  5.2}\relax \fontsize  {12}{14.5}\selectfont  \abovedisplayskip 12\p@ plus3\p@ minus7\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6.5\p@ plus3.5\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \normalfont  The Standard (Bipolar) Construction}{8}}
+\citation{Schneier1995}
+\citation{KasaharaS04}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\th@SubSectionStyle  5.2.1}\relax \fontsize  {12}{14.5}\selectfont  \abovedisplayskip 12\p@ plus3\p@ minus7\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6.5\p@ plus3.5\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \normalfont  Example}{10}}
+\citation{wolfphdthesis}
+\citation{wolfphdthesis}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces map $P$ of (R(S)SE)\relax }}{11}}
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:RSSE}{{5.1}{11}}
+\@writefile{toc}{\contentsline {section}{\numberline {\th@SectionStyle  5.3}\relax \fontsize  {12}{14.5}\selectfont  \abovedisplayskip 12\p@ plus3\p@ minus7\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6.5\p@ plus3.5\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \normalfont  The MQ Problem}{11}}
+\@writefile{toc}{\contentsline {section}{\numberline {\th@SectionStyle  5.4}\relax \fontsize  {12}{14.5}\selectfont  \abovedisplayskip 12\p@ plus3\p@ minus7\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6.5\p@ plus3.5\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \normalfont  Attacks against Multivariate Schemes}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\th@SubSectionStyle  5.4.1}\relax \fontsize  {12}{14.5}\selectfont  \abovedisplayskip 12\p@ plus3\p@ minus7\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6.5\p@ plus3.5\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \normalfont  SAT Solving Attack}{12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\th@SubSectionStyle  5.4.2}\relax \fontsize  {12}{14.5}\selectfont  \abovedisplayskip 12\p@ plus3\p@ minus7\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6.5\p@ plus3.5\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \normalfont  Fault Attacks}{12}}
+\citation{AlbrechtPetzoldt2013}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\th@SubSectionStyle  5.4.3}\relax \fontsize  {12}{14.5}\selectfont  \abovedisplayskip 12\p@ plus3\p@ minus7\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6.5\p@ plus3.5\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \normalfont  Groebner Basis Attack}{13}}
+\newlabel{eq:complexityHF5}{{5.5}{13}}
+\newlabel{eq:complexityHF5w}{{5.6}{13}}
+\citation{AlbrechtPetzoldt2013}
+\citation{Kipnis1999}
+\citation{Thomae2012}
+\citation{Thomae2012}
+\citation{AlbrechtPetzoldt2013}
+\citation{Kipnis1999}
+\citation{Tao2013}
+\citation{AlbrechtPetzoldt2013}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\th@OtherSecHeadStyles  5.4.3.1}\relax \fontsize  {12}{14.5}\selectfont  \abovedisplayskip 12\p@ plus3\p@ minus7\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6.5\p@ plus3.5\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \normalfont  Reviewing the number of equations to solve undetermined systems}{14}}
+\newlabel{eq:complexdetermined_gf16}{{5.7}{15}}
+\newlabel{eq:complexdetermined_gf31}{{5.8}{15}}
+\newlabel{eq:complexdetermined_gf256}{{5.9}{15}}
+\citation{AlbrechtPetzoldt2013}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Complexity of solving overdetermined random systems over $\mathbb  {F}_2$ with HybridF5\relax }}{16}}
+\newlabel{fig:overgf2}{{5.2}{16}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\th@OtherSecHeadStyles  5.4.3.2}\relax \fontsize  {12}{14.5}\selectfont  \abovedisplayskip 12\p@ plus3\p@ minus7\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6.5\p@ plus3.5\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \normalfont  Calculating the number of equations to solve overdetermined systems}{16}}
+\newlabel{subsection:hybridF5overdetermined}{{\th@OtherSecHeadStyles  5.4.3.2}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Complexity of solving overdetermined random systems over $\mathbb  {F}_4$ with HybridF5\relax }}{17}}
+\newlabel{fig:overgf4}{{5.3}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Complexity of solving overdetermined random systems over $\mathbb  {F}_{16}$ with HybridF5\relax }}{17}}
+\newlabel{fig:overgf16}{{5.4}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Complexity of solving overdetermined random systems over $\mathbb  {F}_{256}$ with HybridF5\relax }}{18}}
+\newlabel{fig:overgf256}{{5.5}{18}}
+\newlabel{eq:HF5_gf2_4}{{\th@OtherSecHeadStyles  5.4.3.2}{19}}
+\newlabel{eq:HF5_gf16}{{\th@OtherSecHeadStyles  5.4.3.2}{19}}
+\newlabel{eq:HF5_gf256}{{5.12}{19}}
+\@setckpt{chapters/chapter_background_mq}{
+\setcounter{page}{20}
+\setcounter{equation}{12}
+\setcounter{enumi}{0}
+\setcounter{enumii}{0}
+\setcounter{enumiii}{0}
+\setcounter{enumiv}{0}
+\setcounter{footnote}{0}
+\setcounter{mpfootnote}{0}
+\setcounter{part}{1}
+\setcounter{chapter}{5}
+\setcounter{section}{4}
+\setcounter{subsection}{3}
+\setcounter{subsubsection}{2}
+\setcounter{paragraph}{0}
+\setcounter{subparagraph}{0}
+\setcounter{figure}{5}
+\setcounter{table}{0}
+\setcounter{th@SecNum}{4}
+\setcounter{th@SectionSave}{0}
+\setcounter{th@storepage}{8}
+\setcounter{PSforPDF}{0}
+\setcounter{NAT@ctr}{0}
+\setcounter{ContinuedFloat}{0}
+\setcounter{parentequation}{0}
+}

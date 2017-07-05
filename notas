@@ -1,0 +1,154 @@
+Sumário
+-------
+Nossa proposta esta dividida em duas partes
+I Parte
+2 esquemas postuqnaticos
+II Parte
+otro esquema postquantico
+
+Slide 4
+--------
+
+remitente
+destinatario
+
+Slide 5
+--------
+Para conseguer estes objetivos aparecem os esquemas criptográficos. que podem ser descritos matematicamente. o mediante
+algoritmos: geração de chaves, assinatura, verificação
+
+En criptografia o termo usada para a mensagem é texto claro, texto cifrado para o outro
+
+Por exemplo
+Explicar figura 1
+
+Slide 6
+-------
+Não tem como objetivo confidencialidad mas sim autenticidade
+
+Slide 7
+------- 
+Esquemas convencionais usados mais robustos
+Slide 8
+--------
+Algoritmo de Short
+mcd(a^{r/2} ± 1, N)
+Slide 9
+--------
+o que fazer
+
+Slide 10
+--------
+Não passar muito rápido
+
+Slide 16
+--------
+
+1) As primitivas criptográficas: Elementos matemáticos usados para criptografia, por exemplo funções hash,
+os mesmos algoritmos de cifrado e decifrado.
+2) Falar sobre esquemas baseados em funções hash: 2 primitivas
+3) LD
+4) Para solucionar o problema aparece o esquema de Winternitz. Não foi publicado por ele, mas ele comentou 
+a Merkle e Merkle publico na sua tese de doutor.
+5) Problemas dos dois é que suas chaves assinatura e verificação só se usam uma vez.
+6) Estes sistemas também são conhecidos como sistemas OTS (One-Time-Signature)
+
+Slide 17, 18
+-------------
+1) Utilizar uma árvore binária completa com altura H.
+2) Gerar por cada folha um par de chaves OTS.
+3) Assim os X_i são a chave privada e a raiz da árvore a chave pública
+4) >> H número de nós a computar é grande
+
+Slide 19
+--------
+1) Soluciona o problema anterior
+2) Utiliza subarvores distribuidos em cada nivel
+3) Chave pública a raiz do primeiro subarvore
+4) Melhora não computando os nós de todos os subarvores
+5) Vamos a denotar um nível qualquer como $i$.
+6) Tendo isto como estão relacionados as subarvores?
+7) Surgem muito mais assinaturas
+8) Se melhora tempo na hora gerar as chaves
+9) Mas se perdew na hora de gerar assinaturas
+2^40
+
+Slides 20
+---------
+2^80
+Disminuir o tempo de assinatura, Isto se consegue quando se vão computando os nós da árvore seguinte no mesmo nível 
+conforme se usam as assinaturas
+
+Slide 22
+--------
+Antes de começar a falar a proposta de melhora vamos falar sobre segurança demonstavél
+-fácil
+
+Slide 23
+--------
+Para alcanzar estes objetivos
+
+Slide 24,25
+------------
+1) Utilizar uma ávore binária completa
+2) e adicionar um nivel a mais que nós denominamos nível pseudofolha (cor azul)
+3) A pseudo folha é composta por sequencias.
+4) Cada sequencia tem F elementos
+5) Falar da Fig 3
+6) O nivel pseudo folha esta relacionada com o nível 0 da árvore de merkle. Porque existe 
+uma correspondencia entre o nó no nivel zero de essa sequencia e as de Verificação OTS. A relação é
+que a síndrome v_0[l] = S_H(E) = S_H(Y_s) - S_H(Y_s + E)
+
+Proposta esta sendo trabalhada com meu orientador, Pedro Lara, dos pesquisadores da USP Paulo Barreto e Rafael Mizoscki
+
+#
+
+slide 28
+--------
+1)Vamos a presentar os esquemas baseados em MQ
+2)Falar ataques contra estes esquemas.
+3)Especificamente Algoritmos de ataque algébrico e de Minrank
+
+slide 29
+---------
+2) Estes esquemas utilizam sistema de polinomios quadraticos multivariaveis como seus chaves publicas.
+1) São muito rápidos para cifrar o assinar. casi siempre lo son tambien para decifrar verificar
+3) Para cifrar se avalia o texto claro em cada polinômio o resultado é o texto cifrado. Para decifrar se faz lo inverso.
+4) A segurança esta baseada em que é dificil calcular o texto claro a partir do texto cifrado se não se conhece o processo inverso. Mas formalmente esta baseado neste problema MQ
+
+slide 30
+--------
+Problema
+Se não se conhece como encontrar a inversa este sistema é dificil de resolver
+-demostrado NP-Completo
+
+slide 31
+--------
+-Os algoritmo resuelven este sistema de equações se denominan algoritmos de ataque algebrico.
+-Algoritmos de ataque algébrico aproveitam o fato que os resolvedor estão em constante evolução.
+-Primeiro ataque proposto em PAtarin 1995, porém para qualquer sistema baseado em MQ se pode montar ataques algebricos.
+-Temos feito uma implementação para converter sistemas de equações baseados em MQ sobre corpos finitos para sistemas de equaçõesna forma normal conjuctiva
+
+slide 33
+--------
+
+a segurança dos esquemas baseados em MQ depende de otro problema que é denominado o problema minrank.
+
+slide 34 
+---------
+Usada satisfactoriamente
+HFE
+TTM
+
+slide 35
+---------
+Comparar a segurança dos sistema MQ usando resolvedores SAT. para isto vamos a devemos obter o numero de m e n no forma normal conjuctiva 
+utilizando o parametro tempo computacional, vamos estimar quanto tempo demoraria quebrar os sistemas ainda não quebrados e compararlos.
+Para isto vamos a utilizar computação de alto desempenho. vamos usar a máquina cripto adquirida no proyecto FINEP
+
+*Observações
+- F esta limitado pelo 2^r na teoria
+- 2^80 ilimitado segundo [] na practica 
+- Por lo quanto a árvore tem que ter duas ramas
+
+

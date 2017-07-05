@@ -1,0 +1,122 @@
+\begin{thebibliography}{15}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{{\tt #1}}\fi
+
+\bibitem[Bard(2009)]{bard2009algebraic}
+Gregory Bard.
+\newblock {\em Algebraic cryptanalysis}.
+\newblock Springer Science \& Business Media, 2009.
+
+\bibitem[Davis e Putnam(1958)]{davis1958reductions}
+Martin Davis e Hilary Putnam.
+\newblock Reductions of hilbert's tenth problem.
+\newblock {\em The Journal of Symbolic Logic}, 23\penalty0 (02):\penalty0
+  183--187, 1958.
+
+\bibitem[Ding et~al.(2014)Ding, Petzoldt, e Wang]{Ding2014}
+Jintai Ding, Albrecht Petzoldt, e Lih-chung Wang.
+\newblock {\em Post-Quantum Cryptography: 6th International Workshop, PQCrypto
+  2014, Waterloo, ON, Canada, October 1-3, 2014. Proceedings}. Cap\'{\i}tulo
+  The Cubic Simple Matrix Encryption Scheme, p\'aginas 76--87, Springer
+  International Publishing, Cham, 2014.
+\newblock ISBN 978-3-319-11659-4.
+\newblock URL \url{http://dx.doi.org/10.1007/978-3-319-11659-4z\_5}.
+
+\bibitem[Kasahara e Sakai(2004)]{KasaharaS04}
+Masao Kasahara e Ryuichi Sakai.
+\newblock A construction of public key cryptosystem for realizing ciphertext of
+  size 100 bit and digital signature scheme.
+\newblock {\em {IEICE} Transactions}, 87-A\penalty0 (1):\penalty0 102--109,
+  2004.
+
+\bibitem[Kipnis et~al.(1999)Kipnis, Patarin, e Goubin]{Kipnis1999}
+Aviad Kipnis, Jacques Patarin, e Louis Goubin.
+\newblock {\em Advances in Cryptology --- EUROCRYPT '99: International
+  Conference on the Theory and Application of Cryptographic Techniques Prague,
+  Czech Republic, May 2--6, 1999 Proceedings}. Cap\'{\i}tulo Unbalanced Oil and
+  Vinegar Signature Schemes, p\'aginas 206--222, Springer Berlin Heidelberg,
+  Berlin, Heidelberg, 1999.
+\newblock ISBN 978-3-540-48910-8.
+\newblock URL \url{http://dx.doi.org/10.1007/3-540-48910-X\_15}.
+
+\bibitem[Moody et~al.(2014)Moody, Perlner, e Smith-Tone]{Moody2014}
+Dustin Moody, Ray Perlner, e Daniel Smith-Tone.
+\newblock {\em Post-Quantum Cryptography: 6th International Workshop, PQCrypto
+  2014, Waterloo, ON, Canada, October 1-3, 2014. Proceedings}. Cap\'{\i}tulo An
+  Asymptotically Optimal Structural Attack on the ABC Multivariate Encryption
+  Scheme, p\'aginas 180--196, Springer International Publishing, Cham, 2014.
+\newblock ISBN 978-3-319-11659-4.
+\newblock URL \url{http://dx.doi.org/10.1007/978-3-319-11659-4\_11}.
+
+\bibitem[Patarin(1996)]{Patarin1996}
+Jacques Patarin.
+\newblock {\em Advances in Cryptology --- EUROCRYPT '96: International
+  Conference on the Theory and Application of Cryptographic Techniques
+  Saragossa, Spain, May 12--16, 1996 Proceedings}. Cap\'{\i}tulo Hidden Fields
+  Equations (HFE) and Isomorphisms of Polynomials (IP): Two New Families of
+  Asymmetric Algorithms, p\'aginas 33--48, Springer Berlin Heidelberg, Berlin,
+  Heidelberg, 1996.
+\newblock ISBN 978-3-540-68339-1.
+\newblock URL \url{http://dx.doi.org/10.1007/3-540-68339-9\_4}.
+
+\bibitem[Patarin(1997)]{Patarin1997}
+Jacques Patarin.
+\newblock The oil and vinegar signature scheme.
+\newblock In: {\em Dagstuhl Workshop on Cryptography}, 1997.
+
+\bibitem[Petzoldt(2013)]{AlbrechtPetzoldt2013}
+Albrecht Petzoldt.
+\newblock {\em Selecting and Reducing Key Sizes for Multivariate Cryptography}.
+\newblock Tese de Doutorado, Instituto de Biof\' isica Carlos Chagas Filho -
+  Universidade Federal do Rio de Janeiro / Brasil, 2013.
+
+\bibitem[Petzoldt et~al.(2016)Petzoldt, Ding, e Wang]{Petzoldt2016}
+Albrecht Petzoldt, Jintai Ding, e Lih{-}chung Wang.
+\newblock Eliminating decryption failures from the simple matrix encryption
+  scheme.
+\newblock {\em {IACR} Cryptology ePrint Archive}, 2016:\penalty0 10, 2016.
+\newblock URL \url{http://eprint.iacr.org/2016/010}.
+
+\bibitem[Schneier(1995)]{Schneier1995}
+Bruce Schneier.
+\newblock {\em Applied Cryptography (2Nd Ed.): Protocols, Algorithms, and
+  Source Code in C}.
+\newblock John Wiley \& Sons, Inc., New York, NY, USA, 1995.
+\newblock ISBN 0-471-11709-9.
+
+\bibitem[Tao et~al.(2013)Tao, Diene, Tang, e Ding]{Tao2013}
+Chengdong Tao, Adama Diene, Shaohua Tang, e Jintai Ding.
+\newblock {\em Post-Quantum Cryptography: 5th International Workshop, PQCrypto
+  2013, Limoges, France, June 4-7, 2013. Proceedings}. Cap\'{\i}tulo Simple
+  Matrix Scheme for Encryption, p\'aginas 231--242, Springer Berlin Heidelberg,
+  Berlin, Heidelberg, 2013.
+\newblock ISBN 978-3-642-38616-9.
+\newblock URL \url{http://dx.doi.org/10.1007/978-3-642-38616-9\_16}.
+
+\bibitem[Tao et~al.(2015)Tao, Xiang, Petzoldt, e Ding]{Tao2015}
+Chengdong Tao, Hong Xiang, Albrecht Petzoldt, e Jintai Ding.
+\newblock Simple matrix - a multivariate public key cryptosystem (mpkc) for
+  encryption.
+\newblock {\em Finite Fields Appl.}, 35\penalty0 (C):\penalty0 352--368,
+  Setembro 2015.
+\newblock ISSN 1071-5797.
+\newblock URL \url{http://dx.doi.org/10.1016/j.ffa.2015.06.001}.
+
+\bibitem[Thomae e Wolf(2012)]{Thomae2012}
+Enrico Thomae e Christopher Wolf.
+\newblock {\em Public Key Cryptography -- PKC 2012: 15th International
+  Conference on Practice and Theory in Public Key Cryptography, Darmstadt,
+  Germany, May 21-23, 2012. Proceedings}. Cap\'{\i}tulo Solving Underdetermined
+  Systems of Multivariate Quadratic Equations Revisited, p\'aginas 156--171,
+  Springer Berlin Heidelberg, Berlin, Heidelberg, 2012.
+\newblock ISBN 978-3-642-30057-8.
+\newblock URL \url{http://dx.doi.org/10.1007/978-3-642-30057-8\_10}.
+
+\bibitem[Wolf(2005)]{wolfphdthesis}
+Christopher Wolf.
+\newblock {\em Multivariate Quadratic Polynomials in Public Key Cryptography}.
+\newblock Tese de Doutorado, Katholieke Universiteit Leuven, The address of the
+  publisher, 2005.
+
+\end{thebibliography}

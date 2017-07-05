@@ -1,0 +1,171 @@
+\chapter{{Hash-Coding Based Cryptography}}
+\section{One-Time Signatures}
+\section{Merkle Scheme}
+\subsection{Security of the Merkle Scheme}
+
+\section{Modified Scheme}
+\label{sec:modified_scheme}
+\[
+	\sigma_{j}^i=(i,j,\normalfont\textsf{V}_j^i,\sigma_{\textsc{SeedBMOTS}},\overbrace{(a_0,\cdots,a_{h-1})}^{A_j^i}).
+\]
+
+\subsection{Security Analysis}
+\subsection{Costs}
+\subsubsection{Complexity}
+Key Generation
+Signature Generation
+Signature Verify
+
+
+\subsubsection{Sizes}
+
+\textbf{Keys Size.}
+Remember that the private key is a set consisting of 
+1) the seeds $\textsc{SeedBMOTS}^0_0$ and $\textsc{SeedBMOTS-J}_j^i$ used to generate the private keys of the modified BMOTS instances and 2) two seeds, $\textsc{SeedPL}^0_u$ and $\textsc{SeedPL}^0_l$ used to generate $e^i_j$. Then, the maximum size of a private key of our propose is
+
+\begin{equation}
+\begin{split}
+    S_{sk} &= \iota + n + N' + N''
+\end{split}
+\end{equation}
+As we seen, a public key of our propose consisting of: 1) The root of the modified Merkle tree and 2) a $N$-bit seed $\textsc{SeedH}$. Then, the maximum size of a public key of our propose is
+\begin{equation}
+\begin{split}
+    S_{pk} &= n + N
+\end{split}
+\end{equation}
+\textbf{Signature Size.} To compute the signature size, we are going to calculate the number of bits occupied by each its component. Remember that a signature has the following components
+
+\[
+	\sigma_{j}^i=(i,j,\normalfont\textsf{V}_j^i,\sigma_{\textsc{BMOTS}},\overbrace{(a_0,\cdots,a_{h-1})}^{A_j^i}).
+\]
+
+$i$ and $j$ are integers and, we are going to represent the size of a integer as $S_{int}$. Since $\sigma_{\textsc{BMOTS}}$ is $|(h,c)|$, then the maximum size of this component is given by:
+\begin{equation}
+S_{\textsc{BMOTS}} = k + \ln{{N}\choose{2n}} + \ln(2n)
+\label{chap:7:eq:c_sig}
+\end{equation}
+where $\ln{{N}\choose{2n}} + \ln(2n)$ is the size of $c$, when $c$ is representing as its rank in some conventional ordering of binary string and its weights. 
+It is clear that the size of $\normalfont\textsf{V}_j^i \in \mathbb{F}_2^{R\times k}$ is $kR$. The size of each node in the modified Merkle tree is $k$, then the size of $A_j$ is $hk$. Thus, the size of a signature of our propose is:
+
+\begin{equation}
+\begin{split}
+    S_{sig} &= 2S_{int} + S_{\textsc{BMOTS}} + kR + hk\\
+    &= 2S_{int} + k + \ln{{N}\choose{2n}} + \ln(2n) + kR + hk\\
+    &= 2S_{int} + k(h+R+1) + \ln{{N}\choose{2n}} + \ln(2n)
+\end{split}
+\end{equation}
+
+%Why can I sign 2^\lamda/2 documents (using the BMOTS parameters)
+%The annswer of this question is in Postquatum Book (Security of MSS)
+
+\subsection{Choosing Parameters}
+As we seen in section \ref{section:modified_scheme}, the number of documents that it is possible to sign using one syndrome is equal to the number of solutions of the follow random linear system 
+
+\begin{equation}
+     \normalfont\textsf{C} \boldsymbol{e^i_x} = \boldsymbol{s}^i_l.
+     \label{eq:cxs}
+\end{equation}
+
+Let $t$ the number of solutions of the system above. To take advantage of the original Merkle system is necessary that at least $t>2$. Known results about finite fields suggest to use undetermined systems, since they have several solutions with high probability. In particular, we choose full rank matrices to construct that systems because the probability is greater than others. The number of $R''\times N''$ matrices over $\mathbb{F}_2$ that have rank $R''$ is
+
+\begin{equation}
+G(R'',N'',r) = {N'' \brack r}_2\sum_{l=0}^{r}(-1)^{r-l}{r \brack l}_22^{R''l+{r-l \choose 2} }
+\label{eq:number_matrices}
+\end{equation}
+where ${N'' \brack r}_2$ and ${r \brack l}_2$ are Gaussian coefficients.
+
+Let $\Pr(R'',N'',r)$ the probability that a $R''\times N''$ matrix has rank $r$. To find this probability it is only necessary to divide \eqref{eq:number_matrices} by the total number of $R''\times N''$ matrices, that is 
+\begin{equation}
+\Pr(R'',N'',r) = \dfrac{G(R'',N'',r)}{2^{R''N''}}   
+\end{equation}
+
+
+As in all fields, if the matrix of the system and the augmented matrix have same rank $r(r\leq N'')$, the set of solutions is an affine subspace of $F^{N''}_2$ of co-dimension $r$, hence there are $t=2^{N''-r}$ points in this subspace. If the rank of the augmented matrix is greater than the rank of the matrix of the system, there is no solution. 
+
+Table \ref{table:suggested_parameters} shows suggested parameters for practical security levels. We choose the values $R', N', k$ and $n$ such that the BMOTS modified system resist the Otmani-Tillich attack. In addition, to construct the matrix $A$ we suggest using the same type of matrices used in [], that is, to use double-circulant parity check matrices, because these matrices define codes meeting the GV bound [7] with high probability. 
+
+As we said, to construct $H$ we need still the matrix $B$ where $N''>R''$. Table \ref{table:suggested_parameters:B} shows suggested parameters for $B$. 
+
+
+\begin{table}[]
+\centering
+\caption{Suggested parameters for standard security levels}
+\label{table:suggested_parameters}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+$\lambda$ & $k$ & $n$ & $R'=|A|$ & $N'$    & $l$ & $p$ & $E{|I|}$ & GV & $|V|$ & $|h,c|$ & Merkle tree \\ \hline
+80        & 160 & 380   & 5000    & 10000  & 8   & 3   & 196.38   & 6  &  800000  &       &             \\ \hline
+112       & 224 & 550   & 3700    & 7400   & 8   & 5   & 292.24   & 11 &     &       &             \\ \hline
+128       & 256 & 630   & 9400    & 18800  & 8   & 5   & 323.85   & 11 &     &       &             \\ \hline
+192       & 384 & 940   & 87500   & 175000 & 8   & 6   & 472.11   & 13 &     &       &             \\ \hline
+256       & 512 & 1280  & 9450    & 18900  & 8   & 12  & 664.66   & 24 &     &       &             \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[]
+\centering
+\caption{Suggested parameters for $B$}
+\label{table:suggested_parameters:B}
+\begin{tabular}{|l|l|l|l|}
+\hline
+$t$ & $R''$ & $N''$ & $\Pr(R'',N'',r)$ \\ \hline
+$64$ & $4$ & $10$ & $0.99$ \\ \hline
+\end{tabular}
+\end{table}
+
+%J out of B
+%$k in JM11 output size of hash 
+%(N n) >= 2^\lamba
+% Due to the random nature of the system \ref{eq:cxs}, we will calculate for which parameters that happens with high probability. Since these parameters affect the size of $ \normalfont\textsf{H}$, we need to found a trade-off relation between the number of documents that it is possible to sign and the size of $\normalfont\textsf{H}$. More formally, let $Rank$ a function that calculates the rank of a matrix. Let $\normalfont\textsf{C}:\boldsymbol{s}^i_l$ a notation to represent the augmented matrix of \eqref{eq:cxs}, then we need to calculate:
+% \begin{equation}
+%      P = \Pr[Rank(\normalfont\textsf{C}) = R''-\log(t) \wedge Rank(\normalfont\textsf{C}:\boldsymbol{s}^i_l) = R''-\log(t)]
+%      \label{eq:cxs_rank_probability}
+% \end{equation}
+% This probability can be easily calculated with know results, and in follow we will explain this in more detail. 
+
+
+% The number of full rank matrices $a \times b$, with $a \geq b$ is given by:
+
+% \begin{equation}
+%     F(a,b) = (2^a-1)(2^a-2)\cdots (2^{a}-2^{b-1}) = \prod_{i=0}^{b-1}(2^a-2^i)
+% \end{equation}
+% If $G(a,b,r)$ denotes the number of $a\times b$ matrices of rank $r$, then 
+% \begin{equation}
+% G(a,b,r) = \dfrac{F(b,r)F(a,r)}{F(r,r)}
+% \end{equation}
+
+% Let $\Pr(a,b,r)$ the probability that a $a\times b$ matrix has rank $r$. To find this probability it is only necessary to divide this quantity by the total number of $a\times b$ matrices, that is 
+% \begin{equation}
+% \Pr(a,b,r) = \dfrac{G(a,b,r)}{2^{ab}}   
+% \end{equation}
+
+
+
+
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % If every $a\times b$ matrix is equally likely to occur, the probability of selecting a matrix with full rank is
+
+% % \begin{equation}
+% %     P(a,b) = 2^{-ab}F(a,b) = \prod_{i=0}^{b-1}(1-2^{i-a})
+% % \end{equation}
+
+ 
+
+
+% That is, we need to calculate 
+% \begin{equation}
+%     P(a,b,r)  = \Pr[Rank(\normalfont\textsf{C}) = R''-\log(t) \wedge Rank(\normalfont\textsf{C}:\boldsymbol{s}^i_l) = R''-\log(t)]
+%      \label{eq:cxs_rank_probability}
+% \end{equation}
+
+% Before, to calculate that relation, we are going to estimate a relation to known the probability of random linear system \eqref{eq:cxs} to have $t$ solutions
+% There are few known results about the number of solutions of random matrices that will be needed. Some further details can be found in [][]. 
+
+
+% In our propose how many document, we can sign?
+% 1.-What is a probability of random linear system over GF(2) Cx=s to have "so" solutions, for example 
+% 2.-Trade-off number of solutions and public key size
+% \subsection{Comparison}

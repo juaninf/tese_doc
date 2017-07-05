@@ -1,0 +1,110 @@
+\chapter{{Some Multivariate Schemes}}
+\label{chapter:back_ground_mpqc}
+In chapter \ref{chap:mpqc}, we will analyse the security of some promising multivariate schemes using SAT solvers. But first we review how their algorithms and their known best attacks. 
+\section{UOV Scheme}
+The Unbalanced Oil Vinegar (UOV) scheme was proposed by \citet{Kipnis1999} and it is a generalisation of the original Oil and Vinegar scheme proposed by \citet{Patarin1997}. This scheme has not the usual standard construction, later we will explain this fact.
+
+The polynomial map $P$ of UOV is defined has the following form:
+
+\begin{equation}
+ P=\left(\begin{matrix}
+    p^{(1)}(\overset{v}{x_1},\cdots,\overset{v}{x_{n-m}},\overset{o}{x_{n-m+1}} \cdots,\overset{o}{x_n})  \\   
+    \vdots \\
+p^{(m)}(\overset{v}{x_1},\cdots,\overset{v}{x_{n-m}},\overset{o}{x_{n-m+1}} \cdots,\overset{o}{x_n})  \\ 
+   \end{matrix}\right).
+\label{eq:uov}
+\end{equation}
+
+In this context, $n$ is the number of variables and $m$ the number of equations of the polynomial map $P$. The variables $x_i$ for $1 \leq i \leq n-m$ are called of vinegar and are represented with the symbol $v$ over these variables. The variables $x_i$ where $n-m + 1 \leq i \leq n$ are called of oil and are represented with the symbol $o$ over these variables. The polynomials functions $p^{(i)}$ are defined as follow
+$$p^{(i)} =\displaystyle\sum_{j=1}^{n-m}\displaystyle\sum_{k=1}^{n-m} \gamma_{j,k}^{i}\overset{v}{x_j}\overset{v}{x_k}+\displaystyle\sum_{j=1}^{n-m}\displaystyle\sum_{k=n-m+1}^{n} \gamma_{j,k}^{i}\overset{v}{x_j}\overset{o}{x_k}+\displaystyle\sum_{k=1}^{n-m} \beta_{k}^{i}\overset{v}{x_k}+\displaystyle\sum_{k=n-m+1}^{n} \beta_{k}^{i}\overset{o}{x_k}+\alpha^i.$$
+
+Note that the vinegar variables are combined quadratically, whereas the oil variables are only combined with vinegar variables. Hence, replacing the vinegar variables with values in $\mathbb{F}_q$ is possible to obtain a linear system of $m$ equations in $n-m$ oil variables. That linear system can be resolved using the Gaussian elimination method easily. Besides, note that because we have the term $n-m$ this scheme can be used only for signature.\\
+\noindent
+\textit{Key Generation.} The UOV scheme ignore the usual linear transformation $S\in \mathbb{F}_q^m\rightarrow \mathbb{F}_q^m$ of the standard construction. This omission is because in UOV scheme all equations have the same shape, then is not necessary to hide some special structure. 
+
+Therefore, the key generation processes works as follow. Select a invertible map $T\in \mathbb{F}_q^n\rightarrow \mathbb{F}_q^n$ and compute $\bar{P} = P \circ T$. Then the public key is $\bar{P}$ and the private key are $P$ and $T$.\\
+\noindent
+\textit{Signature Generation} To sign a document $d$ we use a hash function $H$ and compute $\boldsymbol h=H(d)$. After that, we compute $\boldsymbol y = P^{-1}(\boldsymbol h)$. Hence, the signature of the document $d$ is $\boldsymbol x = T^{-1}(\boldsymbol y)$. Note that $P^{-1}$ not means it be an invert map of $P$ but, one that find pre-images of $P$.\\
+\noindent
+\textit{Verification}
+To verify that $\boldsymbol x$ is the signature of the document $d$, we compute $\boldsymbol h=H(d)$ and after one we compute $\boldsymbol h' = \bar{P}(\boldsymbol x)$. If $h' = h$ then the signature is verified, otherwise rejected.
+\subsection{Known Best Attack against the UOV scheme}
+According [thesis Albrecht] the  relevant attacks are the direct attack, the UOV attack of Kipnis and Shamir and the UOV Reconciliation attack. There is another attack proposed by called The Rainbow Band Separation attack is actually an extension of the UOV Reconciliation attack which uses the special structure of Rainbow; it is not suitable for UOV.
+
+All three attacks (UOV, UOV Reconciliation and Rainbow Band Separation) find an equivalent private key, i.e  UOV/Rainbow private maps which compose to the same public key. However, in the case of UOV, this private key consists only of a UOV central map and one linear transformation, whereas in the case of Rainbow you have, besides the central map, two linear transformations. Therefore, the UOV and the UOV Reconciliation attack output two, whereas the Rainbow central map outputs three maps. Therefore the first two attacks can only be used against UOV, while the third one is used against Rainbow. 
+
+Regarding the efficiency of the attacks: The UOV Reconciliation attack has hardly effect on the parameter choice of UOV. The reason for this is that it requires the solution of a multivariate quadratic system in $o$ equations (just as a direct attack). It is therefore not more efficient than a direct attack against UOV.
+
+The UOV attack has a complexity of $O(q^{v-o})$, where q is the cardinality of the underlying field. To defend UOV against this attack, the difference between $v$ and $o$ should not be too small. If $v=o$, the attack runs in polynomial time and the scheme offers no security at all. To be on the conservative side, on therefore chooses the parameters of UOV to be $v >= 2o$.
+
+To find good parameters for UOV, one first selects the number of equations in such a way that a direct attack against the scheme is infeasible (for $q=256$, this leads to $o = 28$). After this, to be secure against the UOV attack, one chooses $v=2o$. The number of variables in the scheme is therefore given by $n=o+v=3o$.
+\section{Rainbow Scheme}
+\section{STS Schemes}
+The step-wise Triangular Schemes (STS) have a standard construction and were proposed by \cite{Wolf2005} as a generalization of the TPM schemes proposed by  \cite{Goubin:2000:CTC:647096.716863}.
+
+\section{ABC Scheme}
+This scheme has a standard construction and was proposed by \citet{Tao2013}. In the original paper there are mistakes in the decryption process. These mistakes has been addressed by \citet{Ding2014},  \citet{Tao2015} and by \citet{Petzoldt2016}. Here we will explain the ABC scheme with the modification of \citet{Petzoldt2016} which solve these mistakes. 
+
+The main idea of this scheme is create matrices with high rank and use some Simple Matrix Multiplication to construct the map of polynomial functions $P$. Let $\mathbb{F}_q$ be a finite field. Let $s$ be a integer. Let $n=s^2$ a number of variables and $m=2n$ a number of equations of the map. Let $A$ be a matrix with dimensions $s\times s$ such that its entries are indeterminate belonging to $\mathbb{F}_q$. Let $B$ and $C$ be matrices with dimensions $s\times s$ such that its entries are multivariate polynomials of degree one . Define $E_1 = AB$ and $E_2 = AC$. Let $p^{({(i-1)}s+j)}$ and $p^{({s^2+(i-1)s+j})}$ be respectively the $(i,j)$ element of $E_1$ and $E_2$ respectively, where $(i,j=1,\cdots,s)$. Then each polynomial function of the polynomial map $P$ is define by the entries of $E_1$ and $E_2$ in the following way.
+
+\begin{equation}
+ P=\left(\begin{matrix}
+    p^{(1)}(x_1,x_2,\cdots,x_n)  \\
+    \vdots \\
+    p^{(s^2)}(x_1,x_2,\cdots,x_n) \\
+    p^{(s^2+1)}(x_1,x_2,\cdots,x_n) \\    
+    \vdots \\
+    p^{(m)} (x_1,x_2,\cdots,x_n) 
+   \end{matrix}\right).
+\label{eq:abc}
+\end{equation}
+\noindent
+\textit{Key Generation.} Choose two invertible $s\times s$ matrices $T_1$ and $T_2$ and define $T=T_1 \otimes T_2$. Then, the public key, that is, the map $\bar{P}$, is constructed by using two affine transformations  $S\colon\mathbb{F}_q^{m}\rightarrow \mathbb{F}_q^{m}$ and $T\colon\mathbb{F}_q^{n}\rightarrow \mathbb{F}_q^{n}$ in the following way $\bar{P} = S \circ P \circ T$ and the private key consists of $T_1$, $T_2$, $B$, $C$, and $S$.\\
+\noindent
+\textit{Encryption.} To encrypt a message $\boldsymbol m \in \mathbb{F}^*$ there are 3 steps:
+\begin{itemize} 
+\item Split the message in blocks of size $n$, namely $m_1, m_2, m_3, \cdots$. 
+\item After one, verify if the associate matrix $A$ of $m_1$ is invertible. If that matrix is invertible then we evaluate this message in the map $\bar{P}$, i.e. compute the ciphertext $\boldsymbol c_1 = \bar{P}(\boldsymbol m_1)$. Otherwise, Add some constant character to the block $m_1$ at random position and verify if the new associated matrix has inverse. 
+\item We repeat the last step until the associated matrix has inverse and for all blocks of the message $\boldsymbol m$.\\
+\end{itemize}
+\noindent
+\textit{Decryption.} The decryption process of the ciphertext $\boldsymbol c \in \mathbb{F}^n$ consists of four steps:
+\begin{itemize}
+\item[1] Compute $\boldsymbol x=S^{-1}(\boldsymbol c)$. The elements of the vector $\boldsymbol x\in \mathbb{F}^m$ are written into matrices $\bar{E}_1$ and $\bar{E}_2$ as follows 
+
+\begin{equation}
+ E_1=\left(\begin{matrix}
+    x_1 & \cdots & x_s\\
+    \vdots & & \vdots \\
+    x_{(s-1)s+1} & \cdots & x_n 
+   \end{matrix}\right), 
+    E_2=\left(\begin{matrix}
+    x_{n+1} & \cdots & x_{n+s}\\
+    \vdots & & \vdots \\
+    x_{n+(s-1)s+1} & \cdots & x_m 
+   \end{matrix}\right).
+\label{eq:2}
+\end{equation}
+\item[2] After one, it is necessary to compute the pre-image $\boldsymbol y$ of the system $\boldsymbol x=P(\boldsymbol y)$. To do this, there are four cases, namely:
+\begin{itemize}
+\item[-] If $\bar{E}_1$ is invertible, we consider the equation $B\bar{E}_1^{-1}\bar{E}_2-C=0$. Thus, we gets $n$ linear equations in the $n$ variables $y_1, \cdots, y_n$.
+\item[-] If $\bar{E}_1$ is not invertible, but  $\bar{E}_2$, we consider $C\bar{E}_2^{-1}\bar{E}_1-B=0$. Thus, we gets $n$ linear equations in the $n$ variables $y_1, \cdots, y_n$.
+\item[-] If neither $\bar{E}_1$ nor $\bar{E}_2$ are not invertible but $\bar{A}=A(\boldsymbol y)$ is invertible, we consider the relations $\bar{A}^{-1}\bar{E}_1-B=0$ and $\bar{A}^{-1}\bar{E}_2-C=0$. We interpret the elements of $A^{-1}$ as new variables $w_1, \cdots, w_n$ and therefore we gets $m$ linear equations in $m$ variables $w_1, \cdots, w_n, y_1, \cdots y_n$.
+\end{itemize}
+\item[3] Finally, we compute the plaintext by $\boldsymbol m = T^{-1}(y1, \cdots , yn)$. 
+\item[4] After having found the encrypted plaintext $m$, we remove all the appearances of
+the constant character to get the original message.
+\end{itemize} 
+%Investigar the best know attacks against ABC
+%Como clasificar los ataques? structurales? structural key recovery attack?
+\subsection{Known Best Attack against the ABC scheme}
+%talk about Know best attack doesnot matter memory,
+There are several attacks that it is possible to apply against several multivariate schemes. Among them, there is  the Minrank attack proposed by against the multivariate proposed by and called HFE. 
+ 
+\citet{Moody2014} developed a attack, which combined with the Minrank attack is the known best attack against the ABC scheme.
+
+Below, we will explain first the Minrank attack against the ABC scheme and after the strategy proposed by \citet{Moody2014}.\\
+\noindent
+\textbf{Minrank Attack Against the ABC Scheme}\\
+\noindent
+\textbf{An Asymptotically Optimal Structural Attack on the ABC Scheme}
